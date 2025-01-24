@@ -1,13 +1,7 @@
 "use client";
-import Loading from "@/components/Loading";
 import TextField from "@/components/TextField";
-import useFetch from "@/hooks/useFetch";
 import useUserStore from "@/hooks/useUserStore";
-import { Params, PokeOverview } from "@/types/type";
-import { capitalize } from "@/utils/helper";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { use } from "react";
 import { useForm } from "react-hook-form";
 
 // Login Page

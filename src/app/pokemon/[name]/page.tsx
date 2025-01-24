@@ -1,7 +1,7 @@
 "use client";
 import Loading from "@/components/Loading";
 import useFetch from "@/hooks/useFetch";
-import { Params, PokeOverview } from "@/types/type";
+import { Params } from "@/types/type";
 import { capitalize } from "@/utils/helper";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
