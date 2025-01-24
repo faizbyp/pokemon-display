@@ -4,12 +4,21 @@ import useFetch from "@/hooks/useFetch";
 import { Params, PokeOverview } from "@/types/type";
 import { capitalize } from "@/utils/helper";
 import Image from "next/image";
-import { use } from "react";
+import { useRouter } from "next/navigation";
+import { use, useEffect } from "react";
 
 // Detail Page
 export default function Details({ params }: { params: Params }) {
+  const router = useRouter();
   const { name } = use(params);
   const { data: pokemon } = useFetch<any>(`https://pokeapi.co/api/v2/pokemon/${name}`);
+
+  useEffect(() => {
+    const userStorage = localStorage.getItem("user-storage");
+    if (!userStorage) {
+      router.replace("/login");
+    }
+  }, [router]);
 
   return (
     <>

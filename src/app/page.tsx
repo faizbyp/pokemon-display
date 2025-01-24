@@ -3,10 +3,20 @@ import Card from "@/components/Card";
 import Loading from "@/components/Loading";
 import useFetch from "@/hooks/useFetch";
 import { PokeOverview } from "@/types/type";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 // CardList Page
 export default function Home() {
+  const router = useRouter();
   const { data: pokemon } = useFetch<any>("https://pokeapi.co/api/v2/pokemon?limit=20&offset=0");
+
+  useEffect(() => {
+    const userStorage = localStorage.getItem("user-storage");
+    if (!userStorage) {
+      router.replace("/login");
+    }
+  }, [router]);
 
   return (
     <>

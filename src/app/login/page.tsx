@@ -2,14 +2,18 @@
 import Loading from "@/components/Loading";
 import TextField from "@/components/TextField";
 import useFetch from "@/hooks/useFetch";
+import useUserStore from "@/hooks/useUserStore";
 import { Params, PokeOverview } from "@/types/type";
 import { capitalize } from "@/utils/helper";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { use } from "react";
 import { useForm } from "react-hook-form";
 
 // Login Page
 export default function Login() {
+  const router = useRouter();
+  const setCredentials = useUserStore((state) => state.setCredentials);
   const { control, handleSubmit } = useForm({
     defaultValues: {
       username: "",
@@ -19,12 +23,14 @@ export default function Login() {
 
   const onSubmit = (values: any) => {
     console.log(values);
+    setCredentials(values.username, values.password);
+    router.replace("/");
   };
 
   return (
     <>
       <h1 className="my-8">Login</h1>
-      <div className="max-w-sm">
+      <form className="max-w-sm">
         <TextField
           label="Username"
           name="username"
@@ -40,13 +46,14 @@ export default function Login() {
         />
         <div className="text-end">
           <button
+            type="submit"
             className="px-2 py-1 bg-slate-600 text-white rounded hover:bg-slate-700 active:bg-slate-950 transition-all"
             onClick={handleSubmit(onSubmit)}
           >
             Login
           </button>
         </div>
-      </div>
+      </form>
     </>
   );
 }
