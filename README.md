@@ -2,6 +2,8 @@
 
 A simple website to display Pokemon data from API.
 
+![Web Preview](https://github.com/user-attachments/assets/4f8f97d0-6bc3-411e-836e-ddec0154202b)
+
 ## Tech Stack
 
 - **Programming Language**: TypeScript
