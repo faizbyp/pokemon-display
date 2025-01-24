@@ -54,6 +54,7 @@ export default function Details({ params }: { params: Params }) {
                 </div>
 
                 <div>
+                  <p className="font-bold text-lg">Base Stats</p>
                   {pokemon.stats.map((item: any) => (
                     <div className="flex gap-2">
                       <p>{item.stat.name}:</p>
