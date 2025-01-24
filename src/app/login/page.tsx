@@ -39,11 +39,7 @@ export default function Login() {
           rules={{ required: "This field is required." }}
         />
         <div className="text-end">
-          <button
-            type="submit"
-            className="px-2 py-1 bg-slate-600 text-white rounded hover:bg-slate-700 active:bg-slate-950 transition-all"
-            onClick={handleSubmit(onSubmit)}
-          >
+          <button type="submit" onClick={handleSubmit(onSubmit)}>
             Login
           </button>
         </div>

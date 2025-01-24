@@ -12,6 +12,15 @@ const useUserStore = create<User>()(
       setCredentials: (username: string, password: string) => {
         set({ username: username, password: password });
       },
+
+      logout: () => {
+        set({
+          username: "",
+          password: "",
+        });
+        localStorage.removeItem("user-storage");
+        window.location.replace("/login");
+      },
     }),
 
     {
